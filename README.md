@@ -2,5 +2,5 @@
 
 TDD for university academic tracking system
 
-Disclaimer
+Disclaimer:
 This project is done by a java beginner(just a week of java tutorials from youtube) so expect low coding standards.
