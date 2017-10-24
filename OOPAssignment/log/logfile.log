@@ -1,0 +1,60 @@
+2017-10-24 15:41:31,856  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:41:35,414  INFO [main] - Home.Home.getData 30 - User gives this option: 1
+2017-10-24 15:42:21,672  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:42:23,196  INFO [main] - Home.Home.getData 30 - User gives this option: 1
+2017-10-24 15:42:28,651  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:42:30,841  INFO [main] - Home.Home.getData 30 - User gives this option: 2
+2017-10-24 15:47:22,294  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:47:38,203  INFO [main] - Home.Home.getData 29 - User gives this option: 8
+2017-10-24 15:47:42,995  INFO [main] - Home.Home.getData 29 - User gives this option: 99
+2017-10-24 15:47:51,502  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:49:43,216  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:49:46,488  INFO [main] - Home.Home.getData 29 - User gives this option: 1
+2017-10-24 15:49:46,491  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:49:48,984  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:49:55,202  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:49:57,661  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:49:57,673  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:49:59,542  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:50:16,944  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:50:20,186  INFO [main] - Home.Home.getData 29 - User gives this option: 3
+2017-10-24 15:50:22,386  INFO [main] - Home.Home.getData 29 - User gives this option: 5
+2017-10-24 15:50:25,573  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:50:25,585  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:50:27,395  INFO [main] - Home.Home.getData 29 - User gives this option: 1
+2017-10-24 15:51:19,008  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:51:22,586  INFO [main] - Home.Home.getData 29 - User gives this option: 2
+2017-10-24 15:51:22,597  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:51:25,771  INFO [main] - Home.Home.getData 29 - User gives this option: 1
+2017-10-24 15:51:37,303  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:51:42,346  INFO [main] - Home.Home.getData 29 - User gives this option: 1
+2017-10-24 15:51:46,094  INFO [main] - Home.Home.getData 18 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 15:51:53,497  INFO [main] - Home.Home.getData 29 - User gives this option: 2
