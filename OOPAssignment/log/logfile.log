@@ -166,3 +166,45 @@ Starting program
 2017-10-24 20:28:50,614  INFO [main] - Home.Home.getData 17 - ---------------------------------------
 Starting program
 -------------------------------------
+2017-10-24 21:07:49,858  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:08:01,573  INFO [main] - Home.clerk.Validation 28 - User gives this option: 2
+2017-10-24 21:08:01,589  INFO [main] - Home.Home.getData 17 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 21:08:05,028  INFO [main] - Home.Home.getData 28 - User gives this option: 2
+2017-10-24 21:08:16,086  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:08:29,759  INFO [main] - Home.clerk.Validation 28 - User gives this option: 1
+2017-10-24 21:08:29,759  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:08:32,362  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:10:17,983  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:10:23,088  INFO [main] - Home.clerk.Validation 28 - User gives this option: 1
+2017-10-24 21:10:23,088  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:10:25,388  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:10:32,136  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:10:35,439  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:13:45,800  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:13:50,083  INFO [main] - Home.clerk.Validation 28 - User gives this option: 1
+2017-10-24 21:13:50,083  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:13:51,755  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:13:58,294  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:14:04,559  INFO [main] - Home.clerk.Validation 28 - User gives this option: 2
+2017-10-24 21:14:04,559  INFO [main] - Home.Home.getData 17 - ---------------------------------------
+Starting program
+-------------------------------------
+2017-10-24 21:14:06,208  INFO [main] - Home.Home.getData 28 - User gives this option: 2
+2017-10-24 21:14:08,824  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:14:18,269  INFO [main] - Home.clerk.Validation 28 - User gives this option: 54451
+2017-10-24 21:14:18,269  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:14:45,608  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:15:13,483  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:17,738  INFO [main] - Home.clerk.Validation 28 - User gives this option: 13
+2017-10-24 21:15:17,738  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:19,804  INFO [main] - Home.clerk.Validation 28 - User gives this option: 1312
+2017-10-24 21:15:19,804  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:29,016  INFO [main] - Home.clerk.Validation 28 - User gives this option: 1
+2017-10-24 21:15:29,016  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:30,917  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
+2017-10-24 21:15:37,619  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:43,386  INFO [main] - Home.clerk.Validation 28 - User gives this option: 13
+2017-10-24 21:15:43,386  INFO [main] - Home.clerk.Validation 9 - Inside clerk class
+2017-10-24 21:15:46,714  INFO [main] - Home.clerk.Validation 45 - Clerk is authenticated
