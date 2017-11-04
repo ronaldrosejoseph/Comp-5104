@@ -3,6 +3,8 @@ package database;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -19,7 +21,7 @@ import database.StudentDataAdd;
 import home.ClerkAction;
 
 		@RunWith(PowerMockRunner.class)
-		@PrepareForTest({BufferedReader.class, BufferedWriter.class, StudentDataAdd.class})
+		@PrepareForTest({BufferedReader.class, BufferedWriter.class, StudentDataAdd.class, DbConnect.class})
 		public class StudentDataAddTest {
 			
 			@Mock
@@ -37,27 +39,29 @@ import home.ClerkAction;
 			@Mock
 			ClerkAction clerkact; 
 			
+			int[] abc = new int[5];
+
 			@Before
 			public void setUp() throws Exception {
 				PowerMockito.doNothing().when(obj).write(Mockito.anyString(), (BufferedWriter)Mockito.anyObject());
 				PowerMockito.whenNew(ClerkAction.class).withNoArguments().thenReturn(clerkact);
-				PowerMockito.when(clerkact.clientChoices((BufferedWriter) Mockito.any(), (BufferedReader) Mockito.any())).thenReturn(true);
-				PowerMockito.whenNew(StudentDataAdd.class).withNoArguments().thenReturn(obj);
 				PowerMockito.whenNew(DbConnect.class).withNoArguments().thenReturn(dbobj);
-				PowerMockito.doNothing().when(dbobj).courseDataInsert(Mockito.anyInt(),Mockito.anyString(),Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt());
-				PowerMockito.when(dbobj.DisplayCourses(writer,reader)).thenReturn(new int[] {5,6});
+				PowerMockito.when(dbobj.getStudentNumber()).thenReturn(abc);
+				PowerMockito.when(dbobj.isPresent(Mockito.anyInt() ,any(int[].class))).thenReturn(true);
+				PowerMockito.doNothing().when(dbobj).studentDataInsert(Mockito.anyInt(),Mockito.anyString(),Mockito.anyString(), Mockito.anyInt());
+				PowerMockito.when(dbobj.DisplayStudents((BufferedWriter) Mockito.any(), (BufferedReader) Mockito.any())).thenReturn(abc);
+				PowerMockito.when(clerkact.clientChoices((BufferedWriter) Mockito.any(), (BufferedReader) Mockito.any())).thenReturn(true);
 				PowerMockito.when(dbobj.isAlpha(Mockito.anyString())).thenReturn(true);
-				PowerMockito.when(dbobj.checkCourseAlias(Mockito.anyInt())).thenReturn(0);
 			}
 					
 					
 					@Test
-					public void testAddCourse() {
-						System.out.println("Testing clerk adds a course \n");
+					public void testAddStudent() {
+						System.out.println("Testing inputs to add a new student\n");
 						boolean noErrors = true;
 						try {
-							PowerMockito.when(reader.readLine()).thenReturn("667911","Test", "name","4","\n");
-							 obj.addStudent(writer, reader);
+							PowerMockito.when(reader.readLine()).thenReturn("667911","test", "name","4","\n");
+							noErrors = obj.addStudent(writer, reader);
 						} catch (IOException e) {
 							noErrors = false;
 						} catch (SQLException e) {
