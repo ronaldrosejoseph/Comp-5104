@@ -11,7 +11,7 @@ public class StudentCourseEnrol {
 	private static final Logger log = Logger.getLogger(StudentCourseEnrol.class);
 	StudentAction stdact = null;
 	DbConnect dbobj = null;
-	 public void enrolCourse(int stdno, BufferedWriter bufferedWriter, BufferedReader bufferedReader) throws SQLException, IOException {
+	 public boolean enrolCourse(int stdno, BufferedWriter bufferedWriter, BufferedReader bufferedReader) throws SQLException, IOException {
 		 stdact = new StudentAction();
 		 dbobj = new DbConnect();
 		 log.info("Inside enrollement method");
@@ -27,13 +27,15 @@ public class StudentCourseEnrol {
 					msg = bufferedReader.readLine();
 					ecno = Integer.valueOf(msg);
 					if(!dbobj.isPresent(ecno,crslt)) 
-				      {
-				    		write("LoL so funnny!!\nEnter the correct number: ", bufferedWriter);
-				    		i = 0;
+				      {	
+						log.info("Course not found");
+  			    		write("LoL so funnny!!\nEnter the correct number: ", bufferedWriter);
+				    	i = 0;
 				     	}
 					else
 						i = 1;
 				}catch (NumberFormatException e) {
+					log.info("Invalid input for course id");
 					write("LoL so funnny!!\nEnter the correct number: ", bufferedWriter);
 				}
 			}while(i == 0);
@@ -46,9 +48,13 @@ public class StudentCourseEnrol {
 		        	write("\n\nPress enter to continue: ", bufferedWriter);
 		        	bufferedReader.readLine();
 		        	stdact.StudentChoices(stdno, bufferedWriter, bufferedReader); 
+		    		return true; 
+
 		}
-        else 
-         	stdact.StudentChoices(stdno, bufferedWriter, bufferedReader); 
+        else {
+         	stdact.StudentChoices(stdno, bufferedWriter, bufferedReader);
+			return false; 
+        }
        
 }
 	 

@@ -16,12 +16,15 @@ public class CourseDataDelete {
 		   dbobj = new DbConnect();
 	    	int cno[] = new int[50];
 	    	cno = dbobj.DisplayCourses(bufferedWriter, bufferedReader);
+	    	if(cno != null) {
 	    	write("\nEnter the course id to delete: ", bufferedWriter);
 	    	int dno = getChoice(bufferedWriter, bufferedReader);
 			   log.info("Check the course is present: "+dno);
 	    	if(!dbobj.isPresent(dno,cno)) {
+     		    log.info("The course is not present: "+dno);
 	    		write("\nAre you Drunkun!!! No such course exists... Try again\n", bufferedWriter);
 	    		deleteCourse(bufferedWriter, bufferedReader); 
+				return false;
 	    	}
 	    	else {
 	    		dbobj.deleteCourse(dno);
@@ -30,9 +33,14 @@ public class CourseDataDelete {
 		    	write("\n\nPress enter to continue: ", bufferedWriter);
 		    	bufferedReader.readLine();
 		    	caobj.clientChoices(bufferedWriter, bufferedReader);
+				return true;
 	    	}
-			return true;
-
+	    	}
+	    	else
+	    	{
+	    		caobj.clientChoices(bufferedWriter, bufferedReader);
+				return true;
+	    	}
 	    }
 	   
 		 private int getChoice(BufferedWriter bufferedWriter, BufferedReader bufferedReader) throws IOException {

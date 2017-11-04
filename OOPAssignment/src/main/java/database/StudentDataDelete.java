@@ -17,6 +17,7 @@ public class StudentDataDelete {
 		  dbobj = new DbConnect(); 	
 			int sno[] = new int[50];
 			sno = dbobj.DisplayStudents(bufferedWriter, bufferedReader);
+			if (sno != null) {
 			write("Enter the student number to delete: ", bufferedWriter);
 			int dno = getChoice(bufferedWriter, bufferedReader);
 			if(!dbobj.isPresent(dno,sno)) {
@@ -32,6 +33,10 @@ public class StudentDataDelete {
 		    	bufferedReader.readLine();
 		    	caobj.clientChoices(bufferedWriter, bufferedReader);
 			}
+			}
+			else
+		    	caobj.clientChoices(bufferedWriter, bufferedReader);
+
 	    }
 	  private int getChoice(BufferedWriter bufferedWriter, BufferedReader bufferedReader) throws IOException {
 			String msg = "";

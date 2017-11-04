@@ -79,7 +79,7 @@ public class CourseDataAdd {
         }
         else {
         	log.info("Course already exits, course id: "+cid);
-        	write("Course ID already exits! Better be careful next time, reenter all details", bufferedWriter);
+        	write("Course ID already exits! Better be careful next time\n", bufferedWriter);
         	caobj.clientChoices(bufferedWriter, bufferedReader);
         	return false;
         }
@@ -95,8 +95,15 @@ public class CourseDataAdd {
 			try {
 				msg = bufferedReader.readLine();
 				ret = Integer.valueOf(msg);
-				check = 1;
+				if(ret < 0) {
+		        	log.info("Invalid input: "+ret);
+					check = 0;
+					write("Don't be a stupid...\nEnter a positive number!!!\n ", bufferedWriter);
+				}
+				else
+					check = 1;
 			}catch (NumberFormatException e) {
+	        	log.info("Invalid input: "+ret);
 				write("Don't be a stupid...\nEnter an integer!!!\n ", bufferedWriter);
 			}
 		}while(check == 0);
@@ -115,6 +122,7 @@ public class CourseDataAdd {
 					}
 					check = 1;
 			}catch (NumberFormatException e) {
+	        	log.info("Invalid input: "+msg);
 				write("Don't be a stupid...\nEnter characters only!!!\n ", bufferedWriter);
 			}
 		}while(check == 0);

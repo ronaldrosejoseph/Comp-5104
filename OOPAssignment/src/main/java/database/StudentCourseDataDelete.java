@@ -28,12 +28,14 @@ public class StudentCourseDataDelete {
 						dcno = Integer.valueOf(msg);
 						if(!dbobj.isPresent(dcno,crslt)) 
 					      {
+							    log.info("No courses found: "+dcno);
 					    		write("LoL so funnny!!\nEnter the correct number: ", bufferedWriter);
 					    		i = 0;
 					     	}
 						else
 							i = 1;
 					}catch (NumberFormatException e) {
+					    log.info("Invalid input: "+dcno);
 						write("LoL so funnny!!\\nEnter the correct number: ", bufferedWriter);
 					}
 				}while(i == 0);
@@ -41,16 +43,16 @@ public class StudentCourseDataDelete {
 			   write("Displaying your course(s)", bufferedWriter);
 			   dbobj.viewCourses(stdno, bufferedWriter, bufferedReader);
 			   write("\n\nPress enter to continue: ", bufferedWriter);
-			   msg = "";
-			   msg = bufferedReader.readLine();
+			   bufferedReader.readLine();
 			   stdact.StudentChoices(stdno, bufferedWriter, bufferedReader);
+			   return true;
 			}
 		   else {
 			   log.info("Student doesn't have any courses to delete, studentnumber: "+stdno);
 			   write("Hey Lazy fellow...\nYou don't have any courses", bufferedWriter);	
 			   stdact.StudentChoices(stdno, bufferedWriter, bufferedReader);
+			   return false;
 		   }
-		return true;
 	  }
 	  
 	  public synchronized void write(String msg, BufferedWriter bufferedWriter) throws IOException {

@@ -27,7 +27,7 @@ public class Home
 		home = new Home();
 		log.info("\n---------------------------------------\n\nStarting from home\n\n-------------------------------------");
 		int choice = 0;
-		write("1. Clerk \n2. Student \nEnter your choice: ", bufferedWriter);
+		write("\n1. Clerk \n2. Student \nEnter your choice: ", bufferedWriter);
 		
 			choice = getChoice(bufferedWriter,bufferedReader);
 			log.info("User gives this option: "+choice);

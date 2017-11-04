@@ -42,11 +42,15 @@ public class DbConnect {
     
     public boolean isPresent(int dno, int [] sno) 
     {
+    	try {
     	for(int j = 0;j<sno.length;j++) {
     		if(dno == sno[j]) {
     			return true;
     		}
     	}
+    	}catch (NullPointerException e){ 
+		return false;
+		}
 		return false;
     }
     
@@ -57,12 +61,19 @@ public class DbConnect {
     	ResultSet rs=stmt.executeQuery("select StudentNumber,FirstName from Student");
     	int sno[] = new int[50];
     	int i = 0;
+    	if (!rs.next()) {
+    		write("\nNo Students found\n", bufferedWriter);
+    		sno = null;
+    	}
+    	else {
+    	rs.previous();
         while (rs.next()) 
         {
         	 write("Student Number: "+rs.getInt("StudentNumber") + "\tFirstName: " + rs.getString("FirstName"), bufferedWriter);
         	 sno[i] = rs.getInt("StudentNumber");
         	 i++;
         }
+    	}
         return sno;
     }
     
@@ -88,12 +99,19 @@ public class DbConnect {
     	ResultSet rs=stmt.executeQuery("select Courseid,CourseName,SeatsLeft from course");
     	int cno[] = new int[50];
     	int i = 0;
+    	if (!rs.next()) {
+    		write("No courses added yet...", bufferedWriter);
+    		cno = null;
+    		}
+    	else {
+    	rs.previous();
         while (rs.next()) 
         {
         	 write("Course ID: "+rs.getInt("Courseid") + "\tCourse Name: " + rs.getString("CourseName")+ "\t\t\tSeats left: "+rs.getInt("SeatsLeft"), bufferedWriter);
         	 cno[i] = rs.getInt("Courseid");
         	 i++;
         }
+    	}
         return cno;
     }
     
@@ -157,7 +175,7 @@ public class DbConnect {
     	ResultSet rsnw=stmt.executeQuery("select Grade, Scholarship, MaxNoCourses from student where StudentNumber = '"+stno+"';");
     	float grade = 0;
     	while(rsnw.next()) {
-    		grade = rsnw.getInt("Grade")/10;
+    		grade = rsnw.getFloat("Grade")/10;
     		if(rsnw.getInt("Scholarship") == 1 && rsnw.getInt("MaxNoCourses") == 4) {
         		write("Your total grade is "+grade+" GPA and you are selected for the dean's scholarship",bufferedWriter);
     		}
@@ -242,16 +260,15 @@ public class DbConnect {
 				count = rsnw.getInt("count(TotalM)");
 				sumPass = rsnw.getInt("sum(PassFail)");
 				grade = sumMark/count;
-				log.info("sum "+sumMark+" count"+count);
-				log.info("Grade for id "+sno[j]+" is "+grade);
 				if(sumMark != 0) {
 					nwstmt.executeUpdate("update student set Grade = '"+grade+"' where StudentNumber = '"+sno[j]+"';");
-	
+					log.info("Grade for id "+sno[j]+" is "+grade);
+					log.info("sum "+sumMark+" count"+count);
 				
-				if(sumPass/sumMark == 1) {
+				if(sumPass/count == 1) {
 					log.info("Student has passed all the courses "+sno[j]);
 					nwstmt.executeUpdate("update student set Result = true where StudentNumber = '"+sno[j]+"';");
-					if((sumMark/count)>85) 	{
+					if((grade)>=85) 	{
 						log.info("Student has scholarship "+sno[j]);
 						nwstmt.executeUpdate("update student set Scholarship = true where StudentNumber = '"+sno[j]+"';");
 					}
@@ -394,7 +411,7 @@ public class DbConnect {
  			   +"VALUES ('"+stdno+"','"+ecno+"')");
  	log.info("Student enrolled for the course: " +ecno);			
  	stmt.executeUpdate("update course set SeatsLeft = SeatsLeft - 1 where Courseid = '"+ecno+"'");
- 	log.info("Decresed the number of seats available by 1");			
+ 	log.info("Decresed the number of seats available by 1 for the course: "+ecno);			
 	}
 
 	public void studentDataInsert(int sno, String sfna, String slna, int mxcno) throws SQLException {
@@ -406,12 +423,22 @@ public class DbConnect {
       	log.info("Added a student with number: "+sno);		
 	}
 
-	public ResultSet getStudentNumber() throws SQLException {
+	public int[] getStudentNumber() throws SQLException {
 		Connection con = DbConnection();
     	Statement stmt=con.createStatement();
-    	ResultSet rs=stmt.executeQuery("select StudentNumber from student");
 		log.info("Inside getStudentNumber");		
-		return rs;
+    	ResultSet rs=stmt.executeQuery("select StudentNumber from student");
+    	if (!rs.next())
+    		return null;
+    	rs.previous();
+    	int sno[] = new int[50];
+    	int i = 0;
+        while (rs.next()) 
+        {
+        	 sno[i] = rs.getInt("StudentNumber");
+        	 i++;
+        }
+        return sno;
 	}
 
 	public void deleteStudentData(int dno) throws SQLException {
@@ -425,7 +452,7 @@ public class DbConnect {
         	course[i] = rs.getInt("Courseid");
         	i++;
         }
-        for(int j = 0; j < course.length; j++) {
+        for(int j = 0; j < course.length - 1; j++) {
         	stmt.executeUpdate("update course set SeatsLeft = SeatsLeft + 1 where Courseid = '"+course[j]+"'");
     	log.info("Student deregistered from the course hence seat availabilty increases by 1 for course: " +course[j]);
     }

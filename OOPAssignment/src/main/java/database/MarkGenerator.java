@@ -55,20 +55,20 @@ public class MarkGenerator {
 				
 				
 				if(state == 1) {
-					assigno *= (5 + rand.nextInt(5)) * dvfactor;
+					assigno *= (7 + rand.nextInt(3)) * dvfactor;
 					log.info("Assignment mark: "+assigno);
 					dbobj.firstMarkWrite(assigno,slno);
 				}
 				
 				if(state == 2) {
-					mdtno *= (5 + rand.nextInt(5)) * dvfactor;
+					mdtno *= (7 + rand.nextInt(3)) * dvfactor;
 					log.info("Midterm mark: "+mdtno);
 					dbobj.secondMarkWrite(mdtno,slno);
 				}
 				
 				if(state == 3) {
-					pjtno *= (30 + rand.nextInt(30)) * dvfactor;
-					feno *= (30 + rand.nextInt(30)) * dvfactor;
+					pjtno *= (40 + rand.nextInt(20)) * dvfactor;
+					feno *= (40 + rand.nextInt(20)) * dvfactor;
 					log.info("Project mark: "+pjtno);
 					log.info("Final exam mark: "+feno);
 					dbobj.thirdMarkWrite(pjtno,feno,slno);
