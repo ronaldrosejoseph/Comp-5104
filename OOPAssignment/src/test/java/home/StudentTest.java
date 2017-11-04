@@ -42,11 +42,11 @@ public class StudentTest {
 	
 	
 	@Test
-	public void testClerkAuthentication() {
+	public void testStudentAuthentication() {
 		System.out.println("Testing student authentication \n");
 		boolean noErrors = true;
 		try {
-			PowerMockito.when(reader.readLine()).thenReturn("123","1234");
+			PowerMockito.when(reader.readLine()).thenReturn("1234","1234");
 			noErrors =student.StudentLogin(writer, reader);
 		} catch (IOException e) {
 			noErrors = false;
