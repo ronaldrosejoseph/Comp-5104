@@ -21,7 +21,7 @@ public class DbConnect {
 	    {
 	        try
 	        {
-	        	con= DriverManager.getConnection("jdbc:mysql://localhost:3306/universitydetails","root","Ron@1993");
+	        	con= DriverManager.getConnection("jdbc:mysql://localhost:3306/universitydetails","root","Nam#YYYY");
 	        	log.info("Db Connected\n---------------------------");
 	        }
 	        catch(Exception e)
